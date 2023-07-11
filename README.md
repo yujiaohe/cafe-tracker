@@ -2,9 +2,9 @@
 
 Cafe Tracker is a web application that allows you to track cafes and their amenities. You can add new cafes, view the existing cafes, and delete cafes from the database. It provides a user-friendly interface to manage and explore different cafes in your area.
 
-<img src="images/home.png" alt="home" width=260px height=120px>
-<img src="images/add.png" alt="add" width=260px height=120px>
-<img src="images/delete.png" alt="delete" width=260px height=120px>
+<img src="images/home.png" alt="home" width=560px height=260px>
+<img src="images/add.png" alt="add" width=560px height=260px>
+<img src="images/delete.png" alt="delete" width=560px height=260px>
 
 ## Features
 

@@ -1,0 +1,73 @@
+{% include "header.html" %}
+<br>
+<div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p style="color: green">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row mb-2">
+                {% for cafe in cafes %}
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <h3 class="mb-0">{{ cafe.name }}</h3>
+                            <br>
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col" style="color: green">
+                                        <i class="fa-solid fa-chair"></i>
+                                        <br>
+                                        <span>{{ cafe.seats}}</span>
+                                    </div>
+                                    <div class="col {{ cafe.has_toilet }}">
+                                        <i class="fa-solid fa-toilet-paper"></i>
+                                        <br>
+                                        <span>Toilet</span>
+                                    </div>
+
+                                    <div class="col {{ cafe.has_wifi }}">
+                                        <i class="fa-solid fa-wifi"></i>
+                                        <br>
+                                        <span>Wifi</span>
+                                    </div>
+
+                                    <div class="col {{ cafe.has_sockets }}">
+                                        <i class="fa-solid fa-plug"></i>
+                                        <br>
+                                        <span>Sockets</span>
+                                    </div>
+
+                                    <div class="col {{ cafe.can_take_calls }}">
+                                        <i class="fa-solid fa-headset"></i>
+                                        <br>
+                                        <span>Calls</span>
+                                    </div>
+
+                                    <div class="col" style="color: green">
+                                        <i class="fa-solid fa-money-bill"></i>
+                                        <br>
+                                        <span>{{ cafe.coffee_price }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <!--                            class="stretched-link"-->
+                            <a href="{{ cafe.map_url }}">{{ cafe.location }}</a>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <img class="bd-placeholder-img" width="200" height="200" src="{{ cafe.img_url }}"/>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}

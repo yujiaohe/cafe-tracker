@@ -1,0 +1,29 @@
+{% extends "bootstrap/base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% include "header.html" %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+            <h4>Add a new cafe into the database</h4>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p style="color: red">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <!-- This is where your WTForm will go -->
+            {{ wtf.quick_form(form, novalidate=True, button_map={'submit': 'primary'}) }}
+
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
+
+{% endblock %}
